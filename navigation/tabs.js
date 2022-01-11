@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 
-import {Dashboard, Place, SapreView} from '../screens';
+import {Dashboard, Place, SapreView, TestView} from '../screens';
 import { COLORS, FONTS, icons } from '../constants';
 
 const Tab = createBottomTabNavigator();
@@ -50,12 +50,12 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Bookmark"
-                component={SapreView}
+                component={TestView}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                             <Image
-                                source={icons.bookmark}
+                                source={icons.api}
                                 resizeMode="contain"
                                 style={{
                                     width: 22, height: 22,
@@ -68,7 +68,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name='Calendar'
-                component={SapreView}
+                component={TestView}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View
@@ -88,7 +88,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Plane"
-                component={SapreView}
+                component={TestView}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>

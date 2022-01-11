@@ -35,6 +35,8 @@ static void InitializeFlipper(UIApplication *application) {
 [GMSServices provideAPIKey:@"AIzaSyC8PeLT01JVRGcpp5Ri_UNA4HtmZovPrpY"];
 // +------------------------------- google map add +------------------------------- //
 
+[NSURL URLWithString:@"http://192.168.0.54:8000/index.bundle?platform=ios&dev=true"];
+
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif

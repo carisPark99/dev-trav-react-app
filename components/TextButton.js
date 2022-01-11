@@ -19,7 +19,15 @@ const TextButton = ({ label, customContainerStyle, customLabelStyle, onPress }) 
             }}
             onPress={onPress}
         >
-            <Text style={{ ...FONTS.h2, ...customContainerStyle, textAlign: 'center', height: 58 }} >{label}</Text>
+            <Text
+                style={{
+                ...FONTS.h2,
+                ...customContainerStyle,
+                textAlign: 'center',
+                height: 58
+            }}>
+                {label}
+            </Text>
         </TouchableOpacity>
     )
 }

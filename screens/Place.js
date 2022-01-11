@@ -5,6 +5,7 @@ import {
     ImageBackground,
     Image,
     Animated, Platform,
+    Dimensions
 } from 'react-native';
 import { COLORS, SIZES, FONTS, icons } from '../constants';
 import { HeaderBar, TextIconButton, Rating, TextButton } from '../components';
@@ -21,6 +22,7 @@ import { MapStyle } from '../styles';
  */
 const Place = ({navigation, route}) => {
     console.disableYellowBox = true;
+    console.log("@@@ window size : ", Dimensions.get('screen')); // @@@ window size :  {"fontScale": 1, "height": 844, "scale": 3, "width": 390}
 
     const [selectedPlace, setSelectedPlace] = React.useState(null);
     const [ selectedHotel, setSelectedHotel ] = React.useState(null);

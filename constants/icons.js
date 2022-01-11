@@ -10,6 +10,7 @@ const settings = require("../assets/icons/settings.png");
 const side_drawer = require("../assets/icons/side_drawer.png");
 const star = require('../assets/icons/star.png');
 const up_arrow = require("../assets/icons/up_arrow.png");
+const api = require('../assets/icons/api.png');
 
 export default {
     aeroplane,
@@ -24,4 +25,5 @@ export default {
     side_drawer,
     star,
     up_arrow,
+    api
 }

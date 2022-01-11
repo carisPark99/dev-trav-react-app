@@ -7,6 +7,16 @@ import {
 } from 'react-native';
 import { COLORS, SIZES, FONTS, icons } from '../constants';
 
+
+/**
+ * @desc App 상단 헤더 정의 func.
+ * @param titile
+ * @param letOnPressed
+ * @param right
+ * @param containerStyle
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const HeaderBar = ({titile, letOnPressed, right, containerStyle}) => {
     return(
         <View
@@ -17,7 +27,10 @@ const HeaderBar = ({titile, letOnPressed, right, containerStyle}) => {
             }}
         >
             {/* 뒤로가기 버튼 이벤트.*/}
-            <View style={{ alignItems: 'flex-start' }}>
+            <View
+                style={{
+                    alignItems: 'flex-start'
+                }}>
                 <TouchableOpacity
                     style={{
                         alignItems: 'center', justifyContent: 'center',
@@ -52,6 +65,7 @@ const HeaderBar = ({titile, letOnPressed, right, containerStyle}) => {
                     justifyContent: 'center',
                     backgroundColor: right ? COLORS.transparentBlack : null
                 }}
+                onPress={()=> alert('side drawer button click ok')}
             >
                 {right &&
                     <Image
@@ -63,7 +77,6 @@ const HeaderBar = ({titile, letOnPressed, right, containerStyle}) => {
                     />
                 }
             </TouchableOpacity>
-
         </View>
     )
 }
