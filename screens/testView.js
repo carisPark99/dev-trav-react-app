@@ -18,8 +18,12 @@ const TestView = ({ navigation }) => {
     const [ isLoding, setIsLoging ] = React.useState(false);
     const [ sensorStat, setSensorStat ] = React.useState(true);
     const [ mainText, setMainText ] = React.useState("Please click the Here!");
-    const url = Platform.OS === 'android' ? 'http://127.0.0.1:8000/dev/cwit/sensor/sub'
-        : 'http://localhost:8000/dev/cwit/sensor/sub'
+
+    const sensorPubUrlPath = '/dev/cwit/sensor/led/sub';
+    const shadowUpateUrlPath = '/dev/cwit/sensor/led/deviceShadowUpdate';
+
+    const url = Platform.OS === 'android' ? 'http://127.0.0.1:8000' + shadowUpateUrlPath
+        : 'http://localhost:8000' + shadowUpateUrlPath
 
     /**
      * @desc greengrassCore MQTT.
@@ -29,15 +33,17 @@ const TestView = ({ navigation }) => {
         console.debug(`@@@ isLoding : ${isLoding}`);
         console.debug(`@@@ sensorStat : ${sensorStat}`);
 
-        if(sensorStat) {setSensorStat(false)} else if (!sensorStat) {setSensorStat(true)}
+        // if(sensorStat) {setSensorStat(false)} else if (!sensorStat) {setSensorStat(true)}
         setIsLoging(true);
 
         axios.post(url, {
-            'ledon': sensorStat
+            'ledon': !sensorStat
         })
             .then(function (res) {
                 console.debug(res.data);
+                console.debug(res.data.status.ledon);
                 setSensorData(res.data);
+                setSensorStat(res.data.status.ledon);
                 setIsLoging(false);
                 alert('정상적으로 데이터 요청이 완료 되었습니다.');
             })
@@ -55,7 +61,8 @@ const TestView = ({ navigation }) => {
             <View style={{
                 flex:1, alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#1E3269'}}
+                backgroundColor: sensorStat ? 'tomato' : '#1E3269'
+            }}
             >
                 <HeaderBar
                     titile={'dev-raspi-greengrassCore'}
@@ -69,7 +76,7 @@ const TestView = ({ navigation }) => {
                     <Text
                         style={{
                             fontSize: SIZES.h2,
-                            color: COLORS.white
+                            color: sensorStat ? COLORS.black : COLORS.white
                         }}
                     >{mainText}
                     </Text>

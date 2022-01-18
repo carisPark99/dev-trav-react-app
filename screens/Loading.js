@@ -4,10 +4,11 @@ import {icons} from '../constants';
 
 
 export default function Loading(){
-    return(
+    return (
         <View style={styles.container}>
             <Text style={styles.title}>Data is being requested. Please wait..</Text>
-        </View>)
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#1E3267',
+        backgroundColor: 'red' //'#1E3267',
     },
     title: {
         fontSize: 30,

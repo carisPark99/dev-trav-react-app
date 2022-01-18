@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 
-import {Dashboard, Place, SapreView, TestView} from '../screens';
+import {Dashboard, Place, SapreView, TestView, Chart, LedSensor} from '../screens';
 import { COLORS, FONTS, icons } from '../constants';
 
 const Tab = createBottomTabNavigator();
@@ -68,7 +68,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name='Calendar'
-                component={TestView}
+                component={Chart}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View
@@ -88,7 +88,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Plane"
-                component={TestView}
+                component={LedSensor}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
